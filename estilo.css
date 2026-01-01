@@ -1,0 +1,62 @@
+:root{--bg:#f3f8ff;--accent:#ff4d4f;--paper:#fff8ec;--ink:#123145}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Nunito Sans,system-ui,Arial,sans-serif;background:linear-gradient(180deg,#eaf6ff 0%,var(--bg) 60%);display:flex;align-items:center;justify-content:center}
+.scene{width:92vw;max-width:720px;padding:20px;perspective:1200px}
+.envelope{position:relative;width:100%;height:min(78vh,420px);margin:0 auto;border-radius:14px;background:linear-gradient(180deg,#fffefc,#fbfbf7);box-shadow:0 26px 70px rgba(8,20,40,.16);overflow:visible;border:1px solid rgba(10,20,40,.04);display:flex;align-items:flex-start;justify-content:center;transform-style:preserve-3d}
+.flap{position:absolute;left:0;right:0;top:0;height:46%;background:linear-gradient(180deg,#f7efe2,#fff5ea);border-top-left-radius:14px;border-top-right-radius:14px;transform-origin:50% 0%;transition:transform .9s cubic-bezier(.12,.82,.18,1);box-shadow:inset 0 -8px 28px rgba(0,0,0,.06)}
+.seal-btn{position:absolute;left:50%;transform:translateX(-50%);top:36%;width:84px;height:84px;border-radius:999px;border:0;background:transparent;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:120;transition:opacity .4s ease, transform .4s ease}
+.seal-btn img{width:72px;height:72px;display:block;border-radius:999px;box-shadow:0 12px 30px rgba(0,0,0,.22);transition:transform .28s ease, filter .28s ease, opacity .35s ease}
+.envelope.open .flap{transform:rotateX(-170deg) translateY(-8%)}
+.envelope.open .seal-btn{opacity:0;pointer-events:none;transform:translateY(-18px) scale(.9)}
+.envelope.open .seal-btn img{transform:scale(.9) rotate(-12deg);filter:grayscale(.3) blur(.6px)}
+
+.paper{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%) translateY(6%);
+    top:34%;
+    width:86%;
+    height:70%;
+    border-radius:8px;
+    box-shadow:0 22px 48px rgba(15,30,60,.14);
+    padding:20px;
+    opacity:0;
+    transform-origin:top center;
+    transition:transform .8s cubic-bezier(.18,.82,.18,1),opacity .45s;
+    z-index:35;
+    border:1px solid rgba(0,0,0,.03);
+    /* imagen de fondo encima de un degradado y color de respaldo */
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.2)),
+        url('images/hoja.png');
+    background-color:var(--paper);
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+.envelope.open .paper{
+    opacity:1;
+    transform:translateX(-50%) translateY(-6px) rotateX(0.8deg) scale(1);
+}
+.paper-content{height:100%;overflow:auto}
+.paper h1{font-family:'Playfair Display',serif;margin:6px 0 8px;color:var(--ink);font-size:24px}
+.paper p{color:#173a53;line-height:1.5}
+.paper-image-wrapper{margin-top:12px;background:linear-gradient(135deg,#ffd89b,#ffb199);border-radius:8px;padding:8px;display:flex;align-items:center;justify-content:center}
+#heartsLayer{position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none;overflow:visible;z-index:200}
+.floating-heart{position:absolute;width:36px;height:36px;background-size:contain;background-repeat:no-repeat;will-change:transform,opacity}
+
+/* gallery styles */
+.gallery{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.gallery img{width:calc(33.333% - 6px);border-radius:6px;cursor:pointer;box-shadow:0 8px 24px rgba(6,20,40,.12);height:72px;object-fit:cover}
+.gallery img:focus{outline:3px solid rgba(255,77,79,.14)}
+.paper-image-wrapper img{max-width:100%;max-height:180px;border-radius:8px}
+.paper-actions{margin-top:14px;display:flex;gap:10px}
+.btn{background:var(--accent);color:white;padding:9px 14px;border-radius:12px;border:0;cursor:pointer;font-weight:700}
+.btn.secondary{background:#ff5e31;color:#ffffff}
+.stamp{position:absolute;right:14px;top:14px;font-size:12px;color:#fff;background:#2b6cb0;padding:6px 8px;border-radius:8px;z-index:30}
+
+#heartsLayer{position:absolute;left:0;top:0;right:0;bottom:0;pointer-events:none;overflow:visible;z-index:60}
+.floating-heart{position:absolute;width:36px;height:36px;background-size:contain;background-repeat:no-repeat;will-change:transform,opacity}
+
+/* small responsive tweaks */
+@media(max-width:520px){.envelope{height:80vh}.seal-btn{width:64px;height:64px}.seal-btn img{width:56px;height:56px}.paper h1{font-size:20px}}
