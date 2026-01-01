@@ -28,7 +28,7 @@ html,body{height:100%;margin:0;font-family:Nunito Sans,system-ui,Arial,sans-seri
     /* imagen de fondo encima de un degradado y color de respaldo */
     background:
         linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.2)),
-        url('images/hoja.png');
+        url('hoja.png');
     background-color:var(--paper);
     background-size:cover;
     background-position:center;
