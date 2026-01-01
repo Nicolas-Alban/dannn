@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>Carta Interactiva</title>
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+	<main class="scene">
+		<div class="envelope" id="envelope" aria-live="polite">
+			<!-- top flap -->
+			<div class="flap" id="flap" aria-hidden="true"></div>
+
+			<!-- seal in the center of the closure; user will place images/wax-seal.png -->
+			<button id="sealBtn" class="seal-btn" aria-label="Abrir la carta">
+				<img src="images/Sello.png" id="sealImg" alt="Sello" />
+			</button>
+
+			<!-- inner paper (hidden until open) -->
+			<article class="paper" id="paper" role="document" aria-hidden="true">
+				<div class="paper-content">
+					<h1 id="paperTitle">Para Danna :3</h1>
+					<p id="paperText">Hola, esto es lo mas mega hiper waus que puedo hacer, no soy profesional pero lo hago con amor...</p>
+					<p id="paperText">Me gustaría mucho que por fin fuéramos novios. Sé que te lo pido de una forma simple y tal vez no cumpla con todas las expectativas que tenías para un momento así, pero te aseguro que estoy haciendo mi mayor esfuerzo para que esto sea oficial. La distancia y el tiempo nos lo ponen difícil para hacerlo en persona, pero mis ganas de estar contigo son más grandes que tu altura 👀</p>
+					<p id="paperText">Asi que nada, espero que aceptes o almnos me respondas esto de una manera seria pero que venga desde tu corazon.</p>
+					<p id="paperText"><strong> Quisieras ser mi Pareja? </strong>🥺</p>
+					<p id="paperText">Atte: Nicolasss :D</p>
+					<div class="paper-image-wrapper">
+						<img id="paperImage" src="images/1.jpeg" alt="Imagen opcional" />
+					</div>
+					<!-- galería pública (imágenes libres de Unsplash) -->
+					
+					<div class="paper-actions">
+						<button id="closeBtn" class="btn secondary">Cerrar</button>
+					</div>
+				</div>
+			</article>
+
+			<!-- decorative stamp (corner) -->
+			<div class="stamp"></div>
+
+			<!-- layer for floating hearts/confetti -->
+			<div id="heartsLayer" aria-hidden="true"></div>
+		</div>
+	</main>
+
+	<script src="codigo.js" defer></script>
+</body>
+</html>
